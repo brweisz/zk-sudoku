@@ -140,11 +140,13 @@ export default function Sudoku() {
     try {
       let board;
 
+
       if (
         dataAccount?.address &&
         activeChain.id.toString() === networks.selectedChain
       ) {
-        board = await contract.generateSudokuBoard(new Date().toString());
+        let currentTime = new Date().toString();
+        board = await contract.generateSudokuBoard(currentTime);
       } else {
         board = await contractNoSigner.generateSudokuBoard(
           new Date().toString()

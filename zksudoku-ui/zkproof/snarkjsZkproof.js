@@ -3,7 +3,7 @@ import { groth16 } from "snarkjs";
 export async function exportCallDataGroth16(input, wasmPath, zkeyPath) {
   const { proof: _proof, publicSignals: _publicSignals } =
     await groth16.fullProve(input, wasmPath, zkeyPath);
-
+  debugger
   const calldata = await groth16.exportSolidityCallData(_proof, _publicSignals);
 
   const argv = calldata
